@@ -25,13 +25,13 @@ public class OrderAggregate {
         Objects.requireNonNull(order, "order cannot be null");
 
         return order.getItems().stream()
-                .map(orderItem -> new OrderAggregate(order.getOrderId(), orderItem.getPosition(), orderItem.getTitle(), orderItem.getPrice(), orderItem.getTax(), order.getInvoiceCustomerId(), customer.getEmail(), customer.getBirthday(), invoice.getInvoiceId(), invoice.getInvoiceDate()))
+                .map(orderItem -> new OrderAggregate(order.getOrderId(), orderItem.getPosition(), orderItem.getTitle(), orderItem.getPrice(), orderItem.getTax(), order.getInvoiceCustomerId(), customer.getEmail(), customer.getCreatedDate(), invoice.getInvoiceId(), invoice.getInvoiceDate()))
                 .toList();
     }
 
     public static List<OrderAggregate> from(Order order, Customer customer) {
         return order.getItems().stream()
-                .map(orderItem -> new OrderAggregate(order.getOrderId(), orderItem.getPosition(), orderItem.getTitle(), orderItem.getPrice(), orderItem.getTax(), order.getInvoiceCustomerId(), customer.getEmail(), customer.getBirthday(), null, null))
+                .map(orderItem -> new OrderAggregate(order.getOrderId(), orderItem.getPosition(), orderItem.getTitle(), orderItem.getPrice(), orderItem.getTax(), order.getInvoiceCustomerId(), customer.getEmail(), customer.getCreatedDate(), null, null))
                 .toList();
     }
 }

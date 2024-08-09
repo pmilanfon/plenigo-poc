@@ -9,5 +9,5 @@ import lombok.Data;
 public class Customer {
     private String id;
     private String email;
-    private String birthday;
+    private String createdDate;
 }
